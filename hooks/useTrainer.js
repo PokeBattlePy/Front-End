@@ -3,8 +3,8 @@ import axios from "axios";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
-function useTrainer() {
-  const { data, error } = useSWR("", fetcher);
+export function useTrainer() {
+  const { data, error } = useSWR("/api/trainer", fetcher);
 
   return {
     trainer: data,

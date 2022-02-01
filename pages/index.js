@@ -5,7 +5,12 @@ import styles from "../styles/Home.module.css";
 import Header from "../templates/header";
 import Card from "../templates/card";
 
+import { useTrainer } from "../hooks/useTrainer";
+
 export default function Home() {
+  const { trainer } = useTrainer();
+  console.log(trainer);
+
   let content;
   let user = false;
 
