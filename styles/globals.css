@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.normal{
+  @apply bg-gradient-to-b from-normal
+}
+.fire{
+  @apply bg-gradient-to-b from-fire
+}
+.water{
+  @apply bg-gradient-to-b from-water
+}
+.electric{
+  @apply bg-gradient-to-b from-electric
+}
+.grass{
+  @apply bg-gradient-to-b from-grass
+}
+.ice{
+  @apply bg-gradient-to-b from-ice
+}
+.fighting{
+  @apply bg-gradient-to-b from-fighting
+}
+.poison{
+  @apply bg-gradient-to-b from-poison
+}
+.ground{
+  @apply bg-gradient-to-b from-ground
+}
+.flying{
+  @apply bg-gradient-to-b from-flying
+}
+.psychic{
+  @apply bg-gradient-to-b from-psychic
+}
+.bug{
+  @apply bg-gradient-to-b from-bug
+}
+.rock{
+  @apply bg-gradient-to-b from-rock
+}
+.ghost{
+  @apply bg-gradient-to-b from-ghost
+}
+.dragon{
+  @apply bg-gradient-to-b from-dragon
+}
+.dark{
+  @apply bg-gradient-to-b from-dark
+}
+.steel{
+  @apply bg-gradient-to-b from-steel
+}
+.fairy{
+  @apply bg-gradient-to-b from-fairy
+}
