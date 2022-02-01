@@ -59,8 +59,8 @@ export function NoUserHome() {
       <div className="w-full py-10 justify-center text-center flex-column">
         <p>Collect over 150 different Pokemon</p>
         <div>
-          {examplePokemon.map((pokemon) => (
-            <Card pokemon={pokemon} />
+          {examplePokemon.map((pokemon, idx) => (
+            <Card key={idx} pokemon={pokemon} />
           ))}
         </div>
       </div>

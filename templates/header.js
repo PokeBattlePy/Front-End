@@ -31,7 +31,7 @@ export function NotLoggedIn() {
         <label className="px-1">Password</label>
         <input className="px-1" name="password" type="password" />
       </form>
-      <button class="px-4 py-1 border-2 border-black">Login</button>
+      <button className="px-4 py-1 border-2 border-black">Login</button>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import Header from "../templates/header";
-import BattleDeck from "../teamplates/battleDeck";
+import BattleDeck from "../templates/battleDeck";
 
 export default function Deck() {
   return (
@@ -8,6 +8,7 @@ export default function Deck() {
       <div className="sticky top-0">
         <BattleDeck deck={[]} numbered={true} />
       </div>
+      
     </main>
   );
 }
