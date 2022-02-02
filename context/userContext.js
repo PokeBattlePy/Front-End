@@ -13,17 +13,32 @@ export function useUser() {
 }
 
 export function UserProvider(props){
+  //initial values
+  const initTrainer = {
+    name: "",
+    active_game:null,
+    pokemon_deck: {
+      rating: 0,
+      pokemon: []
+    },
+    pokemon_collection: [],
+    currency: 0
+  }
+
+  const initUser = null
+  
+  //set context state
   const [state, setState] = useState({
-    trainer: null,
+    trainer: initTrainer,
     user: null,
     login,
     logout,
+    updateContext,
   });
 
+  //context methods
   async function login(){
     let res = await axios.get("/api/trainer");
-
-    // let data = fetcher("/api/trainer")
 
     const newState = {
       user: true,
@@ -40,10 +55,11 @@ export function UserProvider(props){
     setState(prevState => ({ ...prevState, ...newState}));
   }
 
-  function update(){
-    return
+  function updateContext(newState){
+    setState(prevState => ({...prevState, ...newState}))
   }
 
+  //provider
   return (
     <UserContext.Provider value={state}>
       {props.children}
