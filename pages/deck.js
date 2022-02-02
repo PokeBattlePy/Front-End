@@ -13,7 +13,7 @@ export default function Deck() {
       
       <div className="flex-column w-4/5 m-auto">
 
-      <div className="sticky top-0">
+      <div>
         <h2>Current Deck</h2>
         <BattleDeck deck={trainer.pokemon_deck.pokemon} numbered={true} />
       </div>

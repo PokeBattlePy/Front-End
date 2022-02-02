@@ -40,6 +40,10 @@ export function UserProvider(props){
     setState(prevState => ({ ...prevState, ...newState}));
   }
 
+  function update(){
+    return
+  }
+
   return (
     <UserContext.Provider value={state}>
       {props.children}
