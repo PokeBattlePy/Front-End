@@ -4,7 +4,7 @@ import Header from "../templates/header";
 export default function Test() {
   const pikachu = {
     tier: 1,
-    name: "Pikachu",
+    name: "pikachu",
     types: ["electric"],
     sprites: {
       frontDefault:
