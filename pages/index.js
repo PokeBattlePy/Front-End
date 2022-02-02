@@ -4,40 +4,37 @@ import styles from "../styles/Home.module.css";
 
 import Header from "../templates/header";
 import Card from "../templates/card";
+import BattleDeck from "../templates/battleDeck";
+import BattleHistory from "../templates/battleHistory";
 
-import { useTrainer } from "../hooks/useTrainer";
+import { useUser } from "../context/userContext";
+
 
 export default function Home() {
-  const { trainer } = useTrainer();
+  const {trainer, user} = useUser();
+ 
   console.log(trainer);
 
-  let content;
-  let user = false;
-
-  if (user) {
-    content = <UserHome />;
-  } else {
-    content = <NoUserHome />;
-  }
 
   return (
     <main>
       <Header />
-      {content}
+      {user ? <UserHome trainer={trainer}/> : <NoUserHome/>}
     </main>
   );
 }
 
-export function UserHome() {
+export function UserHome({trainer}) {
   return (
-    <>
-      <div className="px-10 justify-between">
-        <h2>Hi, Trainer</h2>
+    <div className="justify-center w-4/5 m-auto">
+      <div className="flex py-5 justify-between">
+        <h2>Hi, {trainer.name}</h2>
         <h3>Level 4</h3>
       </div>
-      {/* <BattleDeck deck={[]} numbered={true} />
-      <BattleHistory /> */}
-    </>
+      <h2>Current Deck</h2>
+      <BattleDeck deck={trainer.pokemon_deck.pokemon} numbered={true} />
+      <BattleHistory history={[]}/>
+    </div>
   );
 }
 
@@ -45,6 +42,7 @@ export function NoUserHome() {
   let examplePokemon = [
     //put some pokemon here (3)
   ];
+
   return (
     <>
       <div className="w-full pt-10 pb-40 border-b-4 border-black justify-center flex-column text-center">
