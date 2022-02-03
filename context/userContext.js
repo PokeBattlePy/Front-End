@@ -1,6 +1,10 @@
-import axios from "axios";
 import { createContext, useContext, useState } from "react";
+import jwt from 'jsonwebtoken';
+import axios from "axios";
 
+const baseUrl = 'https://poke-battle-py.herokuapp.com/'
+const tokenUrl = baseUrl + 'api/token/'
+const trainerUrl = baseUrl + 'trainer/'
 
 const UserContext = createContext();
 
@@ -9,7 +13,7 @@ export function useUser() {
   if (!user) {
     throw new Error('You forgot UserProvider!');
   }
-  return user
+  return user;
 }
 
 export function UserProvider(props){
@@ -24,11 +28,10 @@ export function UserProvider(props){
     pokemon_collection: [],
     currency: 0
   }
-
-  const initUser = null
   
   //set context state
   const [state, setState] = useState({
+    tokens:null,
     trainer: initTrainer,
     user: null,
     login,
@@ -37,18 +40,26 @@ export function UserProvider(props){
   });
 
   //context methods
-  async function login(){
-    let res = await axios.get("/api/trainer");
+  async function login(username, password){
+
+    const res = await axios.post(tokenUrl, {username, password});
+
+    const decodedAccess = jwt.decode(res.data.access);
 
     const newState = {
-      user: true,
-      trainer: res.data    
+      tokens: res.data,
+      user: {
+        username: username,
+        id: decodedAccess.user_id
+      }
     }
     setState(prevState => ({ ...prevState, ...newState}));
   }
 
   function logout(){
+
     const newState = {
+      tokens:null,
       user:null,
       trainer:null,
     }
