@@ -27,56 +27,56 @@
 /* Type color classes for cards */
 
 .normal{
-  @apply bg-gradient-to-b from-normal
+  @apply bg-gradient-to-b from-normal to-white
 }
 .fire{
-  @apply bg-gradient-to-b from-fire
+  @apply bg-gradient-to-b from-fire to-white
 }
 .water{
-  @apply bg-gradient-to-b from-water
+  @apply bg-gradient-to-b from-water to-white
 }
 .electric{
-  @apply bg-gradient-to-b from-electric
+  @apply bg-gradient-to-b from-electric to-white
 }
 .grass{
-  @apply bg-gradient-to-b from-grass
+  @apply bg-gradient-to-b from-grass to-white
 }
 .ice{
-  @apply bg-gradient-to-b from-ice
+  @apply bg-gradient-to-b from-ice to-white
 }
 .fighting{
-  @apply bg-gradient-to-b from-fighting
+  @apply bg-gradient-to-b from-fighting to-white
 }
 .poison{
-  @apply bg-gradient-to-b from-poison
+  @apply bg-gradient-to-b from-poison to-white
 }
 .ground{
-  @apply bg-gradient-to-b from-ground
+  @apply bg-gradient-to-b from-ground to-white
 }
 .flying{
-  @apply bg-gradient-to-b from-flying
+  @apply bg-gradient-to-b from-flying to-white
 }
 .psychic{
-  @apply bg-gradient-to-b from-psychic
+  @apply bg-gradient-to-b from-psychic to-white
 }
 .bug{
-  @apply bg-gradient-to-b from-bug
+  @apply bg-gradient-to-b from-bug to-white
 }
 .rock{
-  @apply bg-gradient-to-b from-rock
+  @apply bg-gradient-to-b from-rock to-white
 }
 .ghost{
-  @apply bg-gradient-to-b from-ghost
+  @apply bg-gradient-to-b from-ghost to-white
 }
 .dragon{
-  @apply bg-gradient-to-b from-dragon
+  @apply bg-gradient-to-b from-dragon to-white
 }
 .dark{
-  @apply bg-gradient-to-b from-dark
+  @apply bg-gradient-to-b from-dark to-white
 }
 .steel{
-  @apply bg-gradient-to-b from-steel
+  @apply bg-gradient-to-b from-steel to-white
 }
 .fairy{
-  @apply bg-gradient-to-b from-fairy
+  @apply bg-gradient-to-b from-fairy to-white
 }
