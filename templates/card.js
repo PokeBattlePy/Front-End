@@ -17,18 +17,20 @@ export default function Card({ pokemon, size }) {
     "sm":"text-sm"
   }
 
-  let tiers = {
-    1: "Common",
-    2: "Uncommon",
-    3: "Rare",
-    4: "Epic",
-    5: "Legendary"
+  let borders = {
+    "common": "border-stone-500", //gray
+    "uncommon": "border-lime-500", //green
+    "rare": "border-cyan-500", //blue
+    "epic": "border-fuchsia-600", //purple
+    "legendary": "border-amber-400" //gold
   }
+
+
 
   return (
     // outter border of card
     // card container
-    <div className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-2 border-slate-500 font-bold ${background}`}>
+    <div className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-4 ${borders[pokemon.rarity]} font-bold ${background}`}>
 
 
         <div className={`flex items-center rounded-md p-1 justify-center ${title_size[size]} bg-slate-500/50`}>
