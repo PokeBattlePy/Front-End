@@ -21,9 +21,6 @@ export default function Deck() {
 }
 
 function CardEditor(props) {
-  //THIS CAN BE USED TO DECOUPLE STATE FROM USETRAINER HOOK
-  //AAAAAHHHHHHHHH
-  //-JOE
 
   const {tokens, user} = useUser();
 
@@ -90,14 +87,14 @@ function CardEditor(props) {
   async function handleSaveDeck() {
     const info = {
       headers: {
-        "Authorization": tokens.access
+        "Authorization": "Bearer " + tokens.access
       },
-      data: {
-        "decks": deck
-      }
+    }
+    const body = {
+      "decks": deck
     }
     //make request to API so save deck
-    await axios.put(`https://poke-battle-py.herokuapp.com/trainer/${user.id}/`, info)
+    await axios.put(`https://poke-battle-py.herokuapp.com/trainer/${user.id}/`, body, info)
   }
 
   return (

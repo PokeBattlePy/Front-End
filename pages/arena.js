@@ -59,7 +59,7 @@ export default function Arena() {
     <main className="gb-text">
       <Header />
       {/* {game ?  */}
-      <div className='relative gb-text font-bold justify-center'>
+      <div className=' my-10 relative gb-text font-bold justify-center'>
         {/* battle area container */}
         <div className="grid grid-cols-3 gap-2 w-[1200px] m-auto border-4 border-gray-800">
 
