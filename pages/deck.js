@@ -85,20 +85,28 @@ function CardEditor(props) {
   }
 
   async function handleSaveDeck() {
-    console.log("hellow?")
-    console.log(tokens.access)
-    const info = {
-      headers: {
-        "Authorization": "Bearer " + tokens.access
-      },
-    }
-    const body = {
-      "decks": deck
-    }
-    //make request to API to save deck
-    let res = await axios.patch(`https://poke-battle-py.herokuapp.com/trainer/${user.id}/`, body, info)
+    let deckFilled = true;
 
-    console.log(res)
+    deck.forEach((card) => card.name == "empty" ? deckFilled = false : false);
+
+    if (deckFilled){
+
+      const info = {
+        headers: {
+          "Authorization": "Bearer " + tokens.access
+        },
+      }
+      const body = {
+        "decks": deck
+      }
+      //make request to API to save deck
+      let res = await axios.patch(`https://poke-battle-py.herokuapp.com/trainer/${user.id}/`, body, info)
+
+      alert("Deck saved!")
+  
+    }else{
+      alert("cannot save deck with empty slots!")
+    }
   }
 
   return (
