@@ -1,38 +1,42 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-
 import Header from "../templates/header";
 import Card from "../templates/card";
 import BattleDeck from "../templates/battleDeck";
 import BattleHistory from "../templates/battleHistory";
 
 import { useUser } from "../context/userContext";
+import {useTrainer} from "../hooks/useTrainer";
 
 
 export default function Home() {
-  const {trainer, user} = useUser();
- 
-  console.log(trainer);
-
+  const {user} = useUser();
 
   return (
-    <main>
+    <main className="gb-text">
+      {/* {user ? <p>Logged in</p> : <p>not logged in</p>} */}
       <Header />
-      {user ? <UserHome trainer={trainer}/> : <NoUserHome/>}
+      {user ? <UserHome/> : <NoUserHome/>}
     </main>
   );
 }
 
-export function UserHome({trainer}) {
+
+export function User2Home() {
+  const {trainer} = useTrainer();
+  return <p>{JSON.stringify(trainer)}</p>
+}
+export function UserHome() {
+
+  const {trainer} = useTrainer();
+
   return (
     <div className="justify-center w-4/5 m-auto">
-      <div className="flex py-5 justify-between">
-        <h2>Hi, {trainer.name}</h2>
+      <div className="flex py-5 justify-between text-lg font-bold">
+        <h2>Hi, {trainer && trainer.name}</h2>
         <h3>Level 4</h3>
       </div>
-      <h2>Current Deck</h2>
-      <BattleDeck deck={trainer.pokemon_deck.pokemon} numbered={true} />
+      <p className="pb-5">Select Battle to go fight other trainers!</p>
+      <h2 className="font-bold text-lg">Current Deck</h2>
+      <BattleDeck deck={trainer ? trainer.decks : []} numbered={true} />
       <BattleHistory history={[]}/>
     </div>
   );
