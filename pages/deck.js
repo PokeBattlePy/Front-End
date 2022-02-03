@@ -85,6 +85,8 @@ function CardEditor(props) {
   }
 
   async function handleSaveDeck() {
+    console.log("hellow?")
+    console.log(tokens.access)
     const info = {
       headers: {
         "Authorization": "Bearer " + tokens.access
@@ -93,8 +95,10 @@ function CardEditor(props) {
     const body = {
       "decks": deck
     }
-    //make request to API so save deck
-    await axios.put(`https://poke-battle-py.herokuapp.com/trainer/${user.id}/`, body, info)
+    //make request to API to save deck
+    let res = await axios.patch(`https://poke-battle-py.herokuapp.com/trainer/${user.id}/`, body, info)
+
+    console.log(res)
   }
 
   return (
