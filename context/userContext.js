@@ -61,7 +61,6 @@ export function UserProvider(props){
     const newState = {
       tokens:null,
       user:null,
-      trainer:null,
     }
     setState(prevState => ({ ...prevState, ...newState}));
   }
