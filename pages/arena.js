@@ -11,7 +11,7 @@ export default function Arena() {
   const {trainer} = useTrainer()
   const [game, setGame] = useState(null)
   const [message, setMessage] = useState("Test")
-
+  const {user, tokens} = useUser()
   // HP bar styling function
   function setHp(current, max){
     console.log(`bg-emerald-400 w-[${(current/max)*100}%]`)
@@ -30,14 +30,34 @@ export default function Arena() {
     style["transition-property"] = "width"
     style["width"] = `${(current/max)*100}%`
 
-    console.log(style);
-
     return style
   }
+  
 
+  async function handleStart(){
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + tokens.access
+      },
+      body: {
+        "deck": trainer.decks
+      }
+    }
+    console.log(game)
+    let game = await axios.post("https://poke-battle-py.herokuapp.com/game/", config)
+    props.setGame(game.data) 
+  }
+
+  function getActivePokemon(game){
+    //game:{
+      //
+    return
+  }
+  
   return (
     <main className="gb-text">
       <Header />
+      {game ? 
       <div className='relative gb-text font-bold justify-center'>
         {/* battle area container */}
         <div className="grid grid-cols-3 gap-2 w-[1200px] m-auto border-4 border-grey-800">
@@ -115,13 +135,16 @@ export default function Arena() {
 
           {/* row 4 */}
           <div className="p-5 mx-20 w-auto flex justify-around row-start-4 row-span-1 col-start-1 col-span-3 bg-gray-500 border-4 border-gray-700 rounded-lg">
-            <Controls game={game}/>
+            <Controls game={game} setGame={setGame}/>
           </div>
 
         </div>
       </div>
+      : <button onClick={() => handleStart()}>Start Game</button> }
     </main>
+    
   )
+  
 }
 
 function Controls(props) {
@@ -132,8 +155,15 @@ function Controls(props) {
       "game":props.game.id,
       "selection":selection
     }
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + tokens.access
+      },
+      body: info
+    }
 
-    await axios.post("https://poke-battle-py.herokuapp.com/game", {selection})
+    let game = await axios.post("https://poke-battle-py.herokuapp.com/game/battle/", config)
+    props.setGame(game.data)
   }
 
   return (

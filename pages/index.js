@@ -21,10 +21,6 @@ export default function Home() {
 }
 
 
-export function User2Home() {
-  const { trainer } = useTrainer();
-  return <p>{JSON.stringify(trainer)}</p>
-}
 export function UserHome() {
 
   const { trainer } = useTrainer();
@@ -70,26 +66,6 @@ export function NoUserHome() {
     {
       "pokemon_int": 89,
       "name": "muk",
-      "rarity": "uncommon",
-      "types": ["poison"],
-      "moves": {
-        "base": { "name": "fire-punch", "power": 75, "class": "physical", "type": "fire" },
-        "special": { "name": "pound", "power": 40, "class": "physical", "type": "normal" }
-      },
-      "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
-      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png",
-      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/89.png",
-      "stats": {
-        "hp": 105,
-        "attack": 105,
-        "special-attack": 65,
-        "defense": 75,
-        "special-defense": 100
-      }
-    },
-    {
-      "pokemon_int": 89,
-      "name": "muk",
       "rarity": "rare",
       "types": ["poison"],
       "moves": {
@@ -108,45 +84,37 @@ export function NoUserHome() {
       }
     },
     {
-      "pokemon_int": 89,
-      "name": "muk",
+      "pokemon_int": 37,
+      "name": "vulpix",
       "rarity": "epic",
-      "types": ["poison"],
+      "types": [
+        "fire"
+      ],
       "moves": {
-        "base": { "name": "fire-punch", "power": 75, "class": "physical", "type": "fire" },
-        "special": { "name": "pound", "power": 40, "class": "physical", "type": "normal" }
+        "base": {
+          "name": "body-slam",
+          "power": 85,
+          "class": "physical",
+          "type": "normal"
+        },
+        "special": {
+          "name": "headbutt",
+          "power": 70,
+          "class": "physical",
+          "type": "normal"
+        }
       },
-      "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
-      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png",
-      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/89.png",
+      "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/37.png",
       "stats": {
-        "hp": 105,
-        "attack": 105,
+        "hp": 49.4,
+        "attack": 53.300000000000004,
         "special-attack": 65,
-        "defense": 75,
-        "special-defense": 100
+        "defense": 52,
+        "special-defense": 84.5
       }
-    },
-    {
-      "pokemon_int": 89,
-      "name": "muk",
-      "rarity": "legendary",
-      "types": ["poison"],
-      "moves": {
-        "base": { "name": "fire-punch", "power": 75, "class": "physical", "type": "fire" },
-        "special": { "name": "pound", "power": 40, "class": "physical", "type": "normal" }
-      },
-      "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
-      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png",
-      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/89.png",
-      "stats": {
-        "hp": 105,
-        "attack": 105,
-        "special-attack": 65,
-        "defense": 75,
-        "special-defense": 100
-      }
-    },
+    }
   ];
 
   return (
@@ -164,7 +132,7 @@ export function NoUserHome() {
         <p>Collect over 150 different Pokemon!</p>
         <div className="flex justify-around my-10">
           {examplePokemon.map((pokemon, idx) => (
-            <Card key={idx} pokemon={pokemon} size={"norm"}/>
+            <Card key={idx} pokemon={pokemon} size={"norm"} />
           ))}
         </div>
       </div>
