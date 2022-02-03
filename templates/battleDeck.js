@@ -10,7 +10,7 @@ export default function BattleDeck(props) {
         {props.deck.map((pokemon, idx) => {
           return (
             <div key={idx}>
-              {props.button ? <button onClick={() => handleRemove(pokemon.id)}>Remove</button> : false}
+              {props.button ? <button className="hover:underline" onClick={() => handleRemove(pokemon)}>Remove</button> : false}
               <Card pokemon={pokemon} size={"norm"}/>
               {props.numbered ? <p>{idx + 1}</p> : false}
             </div>

@@ -12,9 +12,9 @@ export default function Arena() {
   const [game, setGame] = useState(null)
   const [message, setMessage] = useState("Test")
   const {user, tokens} = useUser()
+  
   // HP bar styling function
   function setHp(current, max){
-    console.log(`bg-emerald-400 w-[${(current/max)*100}%]`)
     let style = {}
     if (current/max > 0.5){
       style["background-color"] = `rgb(52, 211, 153)`
@@ -43,16 +43,17 @@ export default function Arena() {
         "deck": trainer.decks
       }
     }
-    console.log(game)
+    
     let game = await axios.post("https://poke-battle-py.herokuapp.com/game/", config)
+    console.log(game)
     props.setGame(game.data) 
   }
 
-  function getActivePokemon(game){
-    //game:{
-      //
-    return
-  }
+  // function getActivePokemon(game){
+  //   //game:{
+  //     //
+  //   return
+  // }
   
   return (
     <main className="gb-text">
@@ -60,7 +61,7 @@ export default function Arena() {
       {game ? 
       <div className='relative gb-text font-bold justify-center'>
         {/* battle area container */}
-        <div className="grid grid-cols-3 gap-2 w-[1200px] m-auto border-4 border-grey-800">
+        <div className="grid grid-cols-3 gap-2 w-[1200px] m-auto border-4 border-gray-800">
 
           {/* row 1 */}
           <div className="h-50 w-240 row-start-1 row-span-1 col-start-1 col-span-1 px-2">
@@ -80,7 +81,7 @@ export default function Arena() {
             <Image src='/arenaGrass.png' alt='background' layout='responsive' height={112} width={240} quality={100} />
 
 
-            {/* paraleleleleogram top */}
+            {/*  top */}
             <div className='absolute rounded-md top-5 left-10 w-[400px] h-[100px] bg-slate-400 border-2 border-slate-600 skew-x-[-35deg]'>
 
               <p className='absolute left-5 bottom-0 px-1 skew-x-[35deg]'>HP</p>
@@ -95,7 +96,7 @@ export default function Arena() {
             </div>
 
 
-            {/* paraleleleleogram bottom */}
+            {/* bottom */}
             <div className='absolute rounded-md bottom-5 right-10 w-[400px] h-[100px] bg-slate-400 border-2 border-slate-600 skew-x-[-35deg]'>
               <p className='absolute left-5 bottom-0 px-2 skew-x-[35deg]'>HP</p>
               <p className='absolute left-0 top-0 px-2 py-1
@@ -140,11 +141,10 @@ export default function Arena() {
 
         </div>
       </div>
-      : <button onClick={() => handleStart()}>Start Game</button> }
+      : <button className="p-2 bg-gray-400 border-4 rounded-lg my-5 hover:bg-gray-200"onClick={() => handleStart()}>Start Game</button> }
     </main>
     
   )
-  
 }
 
 function Controls(props) {
@@ -169,7 +169,7 @@ function Controls(props) {
   return (
     <div className='flex w-full justify-around'>
       <p className="text-white">Actions:</p>
-      <button onClick={()=>handleChoice("base")}className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 border- text-white font-bold py-2 px-4 rounded-lg">
+      <button onClick={()=>handleChoice("base")}className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
         Attack
       </button>
       <button onClick={()=>handleChoice("special")}className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
