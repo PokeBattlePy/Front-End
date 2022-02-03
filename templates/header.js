@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {useRouter} from "next/router";
 import { useUser } from "../context/userContext";
 
 export default function Header() {
@@ -43,7 +44,10 @@ export function NotLoggedIn({ login }) {
 
 export function LoggedIn({ logout }) {
 
+  const router = useRouter()
+
   function handleLogout() {
+    router.push("/")
     logout();
   }
 
