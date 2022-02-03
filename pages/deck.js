@@ -31,25 +31,36 @@ export default function Deck() {
   }
 
   function removeCard(remove_pokemon) {
-    newDeck = deck.map((deck_pokemon) => deck_pokemon == remove_pokemon ? placeholder : pokemon)
+    console.log("removing ", remove_pokemon.name);
 
-    while (newDeck.length < 3) {
-      newDeck.append(placeholder)
-    }
+    let newDeck = deck.map((deck_pokemon) => deck_pokemon.name == remove_pokemon.name ? placeholder : remove_pokemon);
 
-    setDeck(newDeck)
+    // while (newDeck.length < 3) {
+    //   newDeck.append(placeholder)
+    // }
+    console.log(newDeck);
+
+    setDeck(newDeck);
   }
 
-  function addCard(pokemon) {
-    if (deck.includes(pokemon)) {
-      alert("Pokemon already in deck!")
-      return
-    }
-    else if (deck.includes(placeholder)) {
+  function addCard(add_pokemon) {
+    deck.forEach((pokemon) => {
+      let dupe = false
+
+      if (pokemon.name == add_pokemon.name){
+        alert(`Can't have more than 1 ${pokemon.name} in deck!`)
+        dupe = true
+        return
+      }
+      if(dupe){
+        return
+      }
+    })
+    if (deck.includes(placeholder)) {
       newDeck = deck.map((pokemon) => pokemon);
       for (let i = 0; i < newDeck.length; i++) {
         if (newDeck[i] == placeholder) {
-          newDeck[i] = pokemon
+          newDeck[i] = add_pokemon
           break
         }
       }

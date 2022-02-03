@@ -8,33 +8,33 @@ import { useTrainer } from "../hooks/useTrainer";
 
 export default function Arena() {
 
-  const {trainer} = useTrainer()
+  const { trainer } = useTrainer()
   const [game, setGame] = useState(null)
   const [message, setMessage] = useState("Test")
-  const {user, tokens} = useUser()
-  
+  const { user, tokens } = useUser()
+
   // HP bar styling function
-  function setHp(current, max){
+  function setHp(current, max) {
     let style = {}
-    if (current/max > 0.5){
-      style["background-color"] = `rgb(52, 211, 153)`
+    if (current / max > 0.5) {
+      style["backgroundColor"] = `rgb(52, 211, 153)`
     }
-    else if (current/max > 0.1){
-      style["background-color"] =  `rgb(250, 204, 21)`
+    else if (current / max > 0.1) {
+      style["backgroundColor"] = `rgb(250, 204, 21)`
     }
-    else if (current/max <= 0.1) {
-      style["background-color"] =  `rgb(248, 113, 113)`
+    else if (current / max <= 0.1) {
+      style["backgroundColor"] = `rgb(248, 113, 113)`
     }
 
-    style["transition-duration"] = "1s"
-    style["transition-property"] = "width"
-    style["width"] = `${(current/max)*100}%`
+    style["transitionDuration"] = "1s"
+    style["transitionProperty"] = "width"
+    style["width"] = `${(current / max) * 100}%`
 
     return style
   }
-  
 
-  async function handleStart(){
+
+  async function handleStart() {
     let config = {
       headers: {
         'Authorization': 'Bearer ' + tokens.access
@@ -43,10 +43,10 @@ export default function Arena() {
         "deck": trainer.decks
       }
     }
-    
+
     let game = await axios.post("https://poke-battle-py.herokuapp.com/game/", config)
-    console.log(game)
-    props.setGame(game.data) 
+    console.log(game.data)
+    setGame(game.data)
   }
 
   // function getActivePokemon(game){
@@ -54,11 +54,11 @@ export default function Arena() {
   //     //
   //   return
   // }
-  
+
   return (
     <main className="gb-text">
       <Header />
-      {game ? 
+      {/* {game ?  */}
       <div className='relative gb-text font-bold justify-center'>
         {/* battle area container */}
         <div className="grid grid-cols-3 gap-2 w-[1200px] m-auto border-4 border-gray-800">
@@ -136,24 +136,25 @@ export default function Arena() {
 
           {/* row 4 */}
           <div className="p-5 mx-20 w-auto flex justify-around row-start-4 row-span-1 col-start-1 col-span-3 bg-gray-500 border-4 border-gray-700 rounded-lg">
-            <Controls game={game} setGame={setGame}/>
+            <Controls game={game} setGame={setGame} />
           </div>
 
         </div>
       </div>
-      : <button className="p-2 bg-gray-400 border-4 rounded-lg my-5 hover:bg-gray-200"onClick={() => handleStart()}>Start Game</button> }
+      <div className="flex justify-center m-auto"><button className="p-2 bg-gray-400 border-4 rounded-lg my-5 hover:bg-gray-200" onClick={() => handleStart()}>Start Game</button></div>
+      {/* } */}
     </main>
-    
+
   )
 }
 
 function Controls(props) {
-  const {user, tokens} = useUser()
+  const { user, tokens } = useUser()
 
-  async function handleChoice(selection){
-    const info= {
-      "game":props.game.id,
-      "selection":selection
+  async function handleChoice(selection) {
+    const info = {
+      "game": props.game.id,
+      "selection": selection
     }
     let config = {
       headers: {
@@ -169,13 +170,13 @@ function Controls(props) {
   return (
     <div className='flex w-full justify-around'>
       <p className="text-white">Actions:</p>
-      <button onClick={()=>handleChoice("base")}className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+      <button onClick={() => handleChoice("base")} className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
         Attack
       </button>
-      <button onClick={()=>handleChoice("special")}className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+      <button onClick={() => handleChoice("special")} className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
         Special Attack
       </button>
-      <button onClick={()=>handleChoice("defense")}className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+      <button onClick={() => handleChoice("defense")} className="bg-blue-500 border-4 border-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
         Defense
       </button>
     </div>

@@ -1,8 +1,9 @@
 import Card from "./card";
 
 export default function BattleDeck(props) {
-  function handleRemove(id){
-    props.handleRemove(id);
+
+  function handleRemove(pokemon){
+    props.removeCard(pokemon);
   }
 
   return (
