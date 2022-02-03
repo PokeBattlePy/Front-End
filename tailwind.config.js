@@ -23,6 +23,9 @@ module.exports = {
         'dark': '#705746',
         'steel': '#B7B7CE',
         'fairy': '#D685AD',
+      },
+      backgroundImage: {
+        'grass-arena': "url('../public/arenaGrass.png')"
       }
     }
   },

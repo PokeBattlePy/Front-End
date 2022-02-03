@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fonts */
+
+@font-face {
+  font-family: "gb";
+  src: url("../public/fonts/Pokemon\ GB.ttf");
+}
+.gb-text {
+  font-family: "gb";
+}
+
+@font-face {
+  font-family: "poke";
+  src: url("../public/fonts/Pocket\ Monk.otf");
+}
+.poke-text {
+  font-family: "poke";
+}
+
+/* Custom Shapes */
+
+/* Sprites */
+
+/* Type color classes for cards */
+
 .normal{
   @apply bg-gradient-to-b from-normal
 }
