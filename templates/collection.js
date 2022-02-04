@@ -9,8 +9,8 @@ export default function Collection(props) {
   return (
     <div className="grid gap-4 grid-cols-5">
       {props.collection.map((pokemon, idx) => (
-        <div key={idx}>
-          <button className="hover:underline" onClick={() => handleAdd(pokemon)}>Add {pokemon.name}</button>
+        <div className="flex-column" key={idx}>
+          <button className="hover:underline w-max" onClick={() => handleAdd(pokemon)}>Add {pokemon.name}</button>
           <Card pokemon={pokemon} size={"sm"} />
         </div>
       ))}

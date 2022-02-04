@@ -5,6 +5,7 @@ import { useUser } from "../context/userContext";
 import Collection from "../templates/collection";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 export default function Deck() {
   const { tokens } = useUser();
@@ -22,7 +23,7 @@ export default function Deck() {
 
 function CardEditor(props) {
 
-  const {tokens, user} = useUser();
+  const { tokens, user } = useUser();
 
   const initialDeck = props.deck.map((card) => card)
 
@@ -55,12 +56,18 @@ function CardEditor(props) {
     setDeck(newDeck);
   }
 
+
   function addCard(add_pokemon) {
     let dupe = false
     let added = false
     deck.forEach((pokemon) => {
       if (pokemon.name == add_pokemon.name) {
-        alert(`Can't have more than 1 ${pokemon.name} in deck!`)
+        toast.error(`Can't have more than 1 ${pokemon.name} in deck!`, {
+          position: "top-center",
+          autoClose: 2500,
+          hideProgressBar: true,
+          closeOnClick: true,
+        });
         dupe = true
         return
       }
@@ -80,7 +87,13 @@ function CardEditor(props) {
     }
 
     if (!added) {
-      alert("Deck full! Please remove a pokemon before adding a new pokemon")
+      toast.error("Deck full! Please remove a pokemon before adding a new pokemon", {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        closeOnClick: true,
+      });
+      let foo
     }
   }
 
@@ -89,7 +102,7 @@ function CardEditor(props) {
 
     deck.forEach((card) => card.name == "empty" ? deckFilled = false : false);
 
-    if (deckFilled){
+    if (deckFilled) {
 
       const info = {
         headers: {
@@ -102,10 +115,20 @@ function CardEditor(props) {
       //make request to API to save deck
       let res = await axios.patch(`https://poke-battle-py.herokuapp.com/trainer/${user.id}/`, body, info)
 
-      alert("Deck saved!")
-  
-    }else{
-      alert("cannot save deck with empty slots!")
+      toast.success("Deck saved!", {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        closeOnClick: true
+      })
+     }else {
+      toast.error("cannot save deck with empty slots!", {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        closeOnClick: true
+      })
+      let foo
     }
   }
 
