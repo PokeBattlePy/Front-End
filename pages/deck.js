@@ -49,7 +49,6 @@ function CardEditor(props) {
   }
 
   function removeCard(remove_pokemon) {
-    console.log("removing ", remove_pokemon.name);
 
     let newDeck = deck.map((deck_pokemon) => deck_pokemon.name == remove_pokemon.name ? placeholder : deck_pokemon);
 

@@ -29,7 +29,6 @@ export default function Arena() {
     game[`${user}_pokemon`].map(poke => {
       if (poke.name == pokemon.name) {
         max = poke.stats.hp
-        console.log(max, current)
       }
     })
     let style = {}
@@ -50,7 +49,6 @@ export default function Arena() {
     return style
   }
 
-
   async function handleStart() {
     setWin(0)
 
@@ -66,7 +64,6 @@ export default function Arena() {
 
     let new_game = await axios.post("https://poke-battle-py.herokuapp.com/game/", config)
 
-    console.log(new_game.data)
     setMessage(new_game.data.last_move)
     setGame(new_game.data)
 
@@ -233,19 +230,16 @@ function Controls(props) {
     }
     if (updated_game.data.active_comp_pokemon == null) {
       props.setWin(2)
-      console.log("Win")
       updated_game.data.active_comp_pokemon = updated_game.data.comp_poke_status[2]
       updated_game.data.active_comp_pokemon.stats.hp = 0
 
     } if (updated_game.data.active_user_pokemon == null) {
       props.setWin(1)
-      console.log("Lose")
       updated_game.data.active_user_pokemon = updated_game.data.user_poke_status[2]
       updated_game.data.active_user_pokemon.stats.hp = 0
     }
 
 
-    console.log(updated_game.data)
     props.setGame(updated_game.data)
   }
 

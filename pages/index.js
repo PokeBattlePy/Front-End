@@ -13,7 +13,6 @@ export default function Home() {
 
   return (
     <main className="gb-text bg-[url('/poke_back.png')] h-full">
-      {/* {user ? <p>Logged in</p> : <p>not logged in</p>} */}
       <Header />
       {user ? <UserHome /> : <NoUserHome />}
     </main>
@@ -24,7 +23,6 @@ export default function Home() {
 export function UserHome() {
 
   const { trainer } = useTrainer();
-  console.log(trainer);
 
   return (
     <div className="justify-center w-4/5 m-auto bg-[url('/homebackground.jpg')] bg-no-repeat bg-cover h-screen text-center">

@@ -11,7 +11,6 @@ export function useTrainer() {
   const {tokens, user, logout} = useUser();
   
   const { data, error, mutate } = useSWR([trainerUrl + (user ? user.id : ''), tokens], fetchTrainer);
-  // const { data, error, mutate } = useSWR("/api/trainer", fetchTrainer);
 
   async function fetchTrainer(url) {
 
