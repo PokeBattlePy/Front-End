@@ -36,7 +36,7 @@
 
 .shake{
   animation-name: shake;
-  animation-duration: 0.75s;
+  animation-duration: 0.5s;
   animation-iteration-count: 2;
 }
 

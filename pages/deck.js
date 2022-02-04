@@ -121,7 +121,7 @@ function CardEditor(props) {
         hideProgressBar: true,
         closeOnClick: true
       })
-     }else {
+    } else {
       toast.error("cannot save deck with empty slots!", {
         position: "top-center",
         autoClose: 2500,
@@ -135,14 +135,14 @@ function CardEditor(props) {
   return (
     <div className="w-4/5 m-auto py-5 border-double border-4 border-black bg-opacity-95 bg-gray-300 p-4 my-5">
 
-      <div>
-        <h2 className="my-5 border-double border-4 border-black bg-opacity-90 bg-gray-300 w-52">Current Deck</h2>
+      <div className="text-center">
+        <h2 className="text-lg text-center mx-auto p-5 my-5 border-double border-4 border-black bg-opacity-90 bg-gray-300 w-1/4">Current Deck</h2>
         <BattleDeck deck={deck} numbered={true} removeCard={removeCard} button={true} />
-        <button className="underline" onClick={handleSaveDeck}>Save Deck</button>
+          <button className="p-1 hover:bg-gray-200 hover:underline m-auto bg-gray-300 border-double border-4 border-black" onClick={handleSaveDeck}>Save Deck</button>
       </div>
 
       <div>
-        <h2 className="my-5 border-double border-4 border-black bg-opacity-90 bg-gray-300 w-44">Collection</h2>
+        <h2 className="text-lg text-center mx-auto p-5 my-5 border-double border-4 border-black bg-opacity-90 bg-gray-300 w-1/4">Collection</h2>
 
         <Collection collection={props.collection} addCard={addCard} />
       </div>
