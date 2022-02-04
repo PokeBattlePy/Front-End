@@ -12,7 +12,7 @@ export default function Home() {
   const { user } = useUser();
 
   return (
-    <main className="gb-text">
+    <main className="gb-text bg-[url('/poke_back.png')] h-full">
       {/* {user ? <p>Logged in</p> : <p>not logged in</p>} */}
       <Header />
       {user ? <UserHome /> : <NoUserHome />}
@@ -28,14 +28,16 @@ export function UserHome() {
 
   return (
     <div className="justify-center w-4/5 m-auto bg-[url('/homebackground.jpg')] bg-no-repeat bg-cover h-screen text-center">
-      <div className="flex py-5 justify-around text-lg font-bold">
-        <h2 className="border-double border-4 border-black bg-opacity-80 bg-gray-300 p-2">Hi, {trainer && trainer.name}</h2>
-        <h3 className="border-double border-4 border-black bg-opacity-80 bg-gray-300 p-2">Level 4</h3>
+      <div className="py-5 border-double border-4 border-black bg-opacity-80 bg-gray-300 p-4 h-full">
+        <div className="flex py-5 justify-around text-lg font-bold">
+          <h2 className="border-double border-4 border-black bg-opacity-80 bg-gray-300 p-2">Hi, {trainer && trainer.name}</h2>
+          <h3 className="border-double border-4 border-black bg-opacity-80 bg-gray-300 p-2">Level 4</h3>
+        </div>
+        <p className="pb-5 border-double border-4 border-black bg-opacity-80 bg-gray-300 w-1/2 p-2 m-auto">Select Battle to go fight other trainers!</p>
+        <h2 className="font-bold text-lg border-double border-4 border-black bg-opacity-80 bg-gray-300 w-72 my-7 p-2 m-auto">Current Deck:</h2>
+        <BattleDeck deck={trainer ? trainer.decks : []} numbered={true} />
+        <BattleHistory trainer={trainer} />
       </div>
-      <p className="pb-5 border-double border-4 border-black bg-opacity-80 bg-gray-300 w-1/2 p-2 m-auto">Select Battle to go fight other trainers!</p>
-      <h2 className="font-bold text-lg border-double border-4 border-black bg-opacity-80 bg-gray-300 w-72 my-7 p-2 m-auto">Current Deck:</h2>
-      <BattleDeck deck={trainer ? trainer.decks : []} numbered={true} />
-      {/* <BattleHistory history={[]}/> */}
     </div>
 
   );
@@ -118,17 +120,20 @@ export function NoUserHome() {
   ];
 
   return (
-    <>
+    <div className="border-b-4 border-black">
       <div className="w-full pt-10 pb-40 border-b-4 border-black justify-center flex-column text-center">
-        <h2 className="text-2xl font-bold">PokeBattlePy</h2>
-        <p className="py-4">
-          Collect, build your team,
-          <br />
-          battle others
-        </p>
-        <button className="px-4 py-1 border-2 border-black">Sign Up</button>
+        <div className="p-5 w-1/2 m-auto border-double border-4 border-black bg-opacity-90 bg-gray-300">
+
+          <h2 className="text-2xl font-bold">PokeBattlePy</h2>
+          <p className="py-4">
+            Collect, build your team,
+            <br />
+            battle others
+          </p>
+          <button className="px-4 py-1 border-2 border-black">Sign Up</button>
+        </div>
       </div>
-      <div className="w-full py-10 justify-center text-center flex-column m-auto">
+      <div className="w-2/3 py-10 justify-center text-center flex-column mx-auto my-10 border-double border-4 border-black bg-opacity-90 bg-gray-300">
         <p>Collect over 150 different Pokemon!</p>
         <div className="flex justify-around my-10">
           {examplePokemon.map((pokemon, idx) => (
@@ -136,6 +141,6 @@ export function NoUserHome() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -25,6 +25,12 @@ export default function Card({ pokemon, size }) {
     "xs": "text-2xs"
   }
 
+  let text_margin = {
+    "norm": "m-5",
+    "sm":"m-3",
+    "xs":"m-1"
+  }
+
   let borders = {
     "common": "border-stone-500", //gray
     "uncommon": "border-lime-500", //green
@@ -41,7 +47,7 @@ export default function Card({ pokemon, size }) {
     <ReactCardFlip isFlipped={isFlipped} flipSpeedBackToFront={1} flipSpeedFrontToBack={1}>
 
       {/* Card Front */}
-      <div onMouseEnter={() => changeFlip(true)} key="front" className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-4 ${borders[pokemon.rarity]} font-bold ${background}`}>
+      <div onMouseEnter={() => changeFlip(true)} key="front" className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-4 ${borders[pokemon.rarity]} font-bold ${background} m-auto`}>
 
 
         <div className={`flex items-center rounded-md p-1 justify-center ${title_size[size]} bg-slate-500/50`}>
@@ -67,19 +73,19 @@ export default function Card({ pokemon, size }) {
       </div >
 
       {/* Card Back */}
-      <div onMouseLeave={() => changeFlip(false)} key="back" className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-4 ${borders[pokemon.rarity]} font-bold ${background}`}>
+      <div onMouseLeave={() => changeFlip(false)} key="back" className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-4 ${borders[pokemon.rarity]} font-bold ${background} m-auto`}>
 
 
         <div className={`flex items-center rounded-md p-1 justify-center ${title_size[size]} bg-slate-500/50`}>
           <p className="capitalize mx-1">{pokemon.name}</p>
         </div>
 
-        <div className={size != "xs" ? 'my-5' : "my-1"}>
+        <div className={text_margin[size]}>
           <p className='font-bold underline'>Base</p>
           <p className='capitalize'>{pokemon.moves.base.name}</p>
           <p>Power: {pokemon.moves.base.power}</p>
         </div>
-        <div className={size != "xs" ? 'my-5' : "my-1"}>
+        <div className={text_margin[size]}>
           <p className='font-bold underline'>Special</p>
           <p className='capitalize'>{pokemon.moves.special.name}</p>
           <p>Power: {pokemon.moves.special.power}</p>

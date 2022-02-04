@@ -6,7 +6,7 @@ export default function Header() {
   const { user, login, logout } = useUser();
 
   return (
-    <header className="flex justify-between p-5 border-b-4 border-black items-center">
+    <header className="flex justify-between p-5 border-b-4 border-black items-center bg-white">
       <div>
         <h1 className="poke-text text-xl">PokeBattlePy</h1>
       </div>

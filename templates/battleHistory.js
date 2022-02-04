@@ -1,42 +1,42 @@
 import BattleDeck from "./battleDeck";
+import { CardsDisplay } from "../pages/arena";
+import { data } from "../pages/api/dummy";
 
-export default function BattleHistory(props) {
-  function createRow(battle) {
-    return (
-      <tr className="divide-x">
-        <td>{battle.opponent}</td>
-        <td>
-          <div>
-            <BattleDeck deck={battle.opponent_deck} />
-          </div>
-        </td>
-        <td>
-          <div>
-            <BattleDeck deck={battle.player_deck} />
-          </div>
-        </td>
-        <td>
-          {battle.result}
-        </td>
-      </tr>
-    )
-  }
+export default function BattleHistory() {
+  
 
   return (
     <div>
-      <h2>Battle History</h2>
-      <div className="border-2">
-        <table>
+      <h2 className="border-double border-4 border-black bg-opacity-80 bg-gray-300 p-2">Battle History</h2>
+      <div className="border-double border-4 border-black bg-opacity-80 p-2">
+        <table className="m-auto">
           <thead>
             <tr>
-              <th>Opponent</th>
+              <th className="px-10">Opponent</th>
               <th>Enemy Deck</th>
               <th>Your Deck</th>
-              <th>Result</th>
+              <th className="px-10">Result</th>
             </tr>
           </thead>
           <tbody>
-            {props.history.map((battle) => createRow(battle))}
+            <tr> 
+              <td>Kirk</td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Kirk"] : []}/></td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Kirk"] : []}/></td>
+              <td>Lose</td>
+            </tr>
+            <tr> 
+              <td>Andrew</td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Andrew"] : []}/></td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Andrew"] : []}/></td>
+              <td>Win</td>
+            </tr>
+            <tr> 
+              <td>Jordan</td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Jordan"] : []}/></td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Jordan"] : []}/></td>
+              <td>Win</td>
+            </tr>
           </tbody>
         </table>
       </div>

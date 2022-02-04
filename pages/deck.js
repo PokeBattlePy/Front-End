@@ -12,7 +12,7 @@ export default function Deck() {
   const { trainer } = useTrainer();
 
   return (
-    <div className="gb-text">
+    <div className="gb-text bg-[url('/poke_back.png')]">
       <Header />
 
       <CardEditor deck={trainer ? trainer.decks : []} collection={trainer ? trainer.cards : []} />
@@ -133,16 +133,16 @@ function CardEditor(props) {
   }
 
   return (
-    <div className="flex-column w-4/5 m-auto">
+    <div className="w-4/5 m-auto py-5 border-double border-4 border-black bg-opacity-95 bg-gray-300 p-4 my-5">
 
       <div>
-        <h2 className="my-5">Current Deck</h2>
+        <h2 className="my-5 border-double border-4 border-black bg-opacity-90 bg-gray-300 w-52">Current Deck</h2>
         <BattleDeck deck={deck} numbered={true} removeCard={removeCard} button={true} />
         <button className="underline" onClick={handleSaveDeck}>Save Deck</button>
       </div>
 
       <div>
-        <h2 className="my-5">Collection</h2>
+        <h2 className="my-5 border-double border-4 border-black bg-opacity-90 bg-gray-300 w-44">Collection</h2>
 
         <Collection collection={props.collection} addCard={addCard} />
       </div>
