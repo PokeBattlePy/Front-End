@@ -22,19 +22,19 @@ export default function BattleHistory() {
             <tr> 
               <td>Kirk</td>
               <td className="px-20"><CardsDisplay pokemon={data ? data["Kirk"] : []}/></td>
-              <td className="px-20"><CardsDisplay pokemon={data ? data["Kirk"] : []}/></td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Jordan"] : []}/></td>
               <td>Lose</td>
             </tr>
             <tr> 
               <td>Andrew</td>
               <td className="px-20"><CardsDisplay pokemon={data ? data["Andrew"] : []}/></td>
-              <td className="px-20"><CardsDisplay pokemon={data ? data["Andrew"] : []}/></td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Jordan"] : []}/></td>
               <td>Win</td>
             </tr>
             <tr> 
               <td>Jordan</td>
               <td className="px-20"><CardsDisplay pokemon={data ? data["Jordan"] : []}/></td>
-              <td className="px-20"><CardsDisplay pokemon={data ? data["Jordan"] : []}/></td>
+              <td className="px-20"><CardsDisplay pokemon={data ? data["Kirk"] : []}/></td>
               <td>Win</td>
             </tr>
           </tbody>

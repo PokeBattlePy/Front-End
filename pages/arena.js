@@ -1,5 +1,6 @@
 import Header from "../templates/header";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 import axios from "axios";
@@ -14,9 +15,9 @@ export default function Arena() {
   const { trainer } = useTrainer()
   const [message, setMessage] = useState("Test")
   const { user, tokens } = useUser()
-  
+
   const [game, setGame] = useState(null)
-  const { win, setWin } = useState(0)
+  const [win, setWin] = useState(0)
 
   const [opAnim, setOpAnim] = useState("")
   const [userAnim, setUserAnim] = useState("")
@@ -28,7 +29,6 @@ export default function Arena() {
     game[`${user}_pokemon`].map(poke => {
       if (poke.name == pokemon.name) {
         max = poke.stats.hp
-        console.log(max, current)
       }
     })
     let style = {}
@@ -49,8 +49,9 @@ export default function Arena() {
     return style
   }
 
-
   async function handleStart() {
+    setWin(0)
+
     let config = {
       headers: {
         'Authorization': 'Bearer ' + tokens.access
@@ -63,15 +64,8 @@ export default function Arena() {
 
     let new_game = await axios.post("https://poke-battle-py.herokuapp.com/game/", config)
 
-    console.log(new_game.data)
     setMessage(new_game.data.last_move)
     setGame(new_game.data)
-    if (new_game.data.active_comp_pokemon == null) {
-      setWin(1)
-    }
-    if (new_game.data.active_user_pokemon == null) {
-      setWin(2)
-    }
 
   }
 
@@ -164,18 +158,35 @@ export default function Arena() {
 
               {/* row 4 */}
               <div className="p-5 mx-20 w-auto flex justify-around row-start-4 row-span-1 col-start-1 col-span-3 bg-gray-500 border-4 border-gray-700 rounded-lg">
-                <Controls game={game} setGame={setGame} setOpAnim={setOpAnim} setUserAnim={setUserAnim} setMessage={setMessage}/>
+                <Controls game={game} setGame={setGame} setOpAnim={setOpAnim} setUserAnim={setUserAnim} setMessage={setMessage} setWin={setWin} />
               </div>
 
             </div>
           </div>
           : <div className="flex justify-center m-auto"><button className="p-2 bg-gray-100 border-double border-black border-4 rounded-lg my-5 hover:bg-gray-300 w-64 h-24" onClick={() => handleStart()}>Start Game</button></div>
         }
-      
-            
-        </div>
-        {win >= 1 && <div className="justify-center sticky bg-white h-[200px] w-[1200px] m-auto border-double border-4 border-black">{win == 2 && <><p className="text-center mt-10 text-4xl">You Win</p><img src={game.active_user_pokemon.offical_artwork} /></>}
-          {win == 1 && <><p className="text-center mt-10 text-4xl">You Lose</p><img src={game.active_comp_pokemon.offical_artwork} /></>}</div>}
+
+
+      </div>
+
+      {win >= 1 &&
+        <div className="absolute left-[50%] bottom-[50%] mx-[-500px] my-[-100px] justify-center bg-white h-[200px] w-[1000px] border-double border-4 border-black">
+
+          {win == 2 &&
+              <p className="text-center mt-10 text-4xl">You Win</p>
+              }
+
+          {win == 1 &&
+              <p className="text-center mt-10 text-4xl">You Lose</p>
+          }
+
+          <div className="flex justify-center m-auto">
+            <Link href="/deck">
+              <a className="p-2 mx-2 bg-gray-100 border-double border-black border-4 rounded-lg my-5 hover:bg-gray-300 w-60 text-center">Back to Deck</a>
+            </Link>
+            <button className="p-2 mx-2 bg-gray-100 border-double border-black border-4 rounded-lg my-5 hover:bg-gray-300 w-60 text-center" onClick={() => handleStart()}>Play Again</button>
+          </div>
+        </div>}
 
     </main>
 
@@ -198,24 +209,37 @@ function Controls(props) {
     }
 
     props.setOpAnim("shake")
-    setTimeout(() => props.setOpAnim(""), 3000);
+    setTimeout(() => props.setOpAnim(""), 1000);
 
     props.setUserAnim("shake")
-    setTimeout(() => props.setUserAnim(""), 3000);
-
-    let actions=[]
+    setTimeout(() => props.setUserAnim(""), 1000);
 
     //player action
-    if (selection != "defense"){
+    if (selection != "defense") {
       let foo
     }
 
-    
+
     let updated_game = await axios.put("https://poke-battle-py.herokuapp.com/game/battle/", config)
 
-    props.setMessage(`${updated_game.data.active_comp_pokemon.name} used *${updated_game.data.last_move}* on ${updated_game.data.active_user_pokemon.name}`)
+    if (updated_game.data.active_comp_pokemon && updated_game.data.active_user_pokemon) {
+      props.setMessage(`${updated_game.data.active_comp_pokemon.name} used *${updated_game.data.last_move}* on ${updated_game.data.active_user_pokemon.name}`)
+    } else {
+      props.setMessage(`*Game Over*`)
 
-    console.log(updated_game.data)
+    }
+    if (updated_game.data.active_comp_pokemon == null) {
+      props.setWin(2)
+      updated_game.data.active_comp_pokemon = updated_game.data.comp_poke_status[2]
+      updated_game.data.active_comp_pokemon.stats.hp = 0
+
+    } if (updated_game.data.active_user_pokemon == null) {
+      props.setWin(1)
+      updated_game.data.active_user_pokemon = updated_game.data.user_poke_status[2]
+      updated_game.data.active_user_pokemon.stats.hp = 0
+    }
+
+
     props.setGame(updated_game.data)
   }
 
