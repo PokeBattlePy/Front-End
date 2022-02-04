@@ -169,3 +169,4 @@ How will you communicate that it’s time to merge?
 
 - Communicate on slack or discord before merging
 
+![Whiteboard](assets\PokebattlePy.png)
