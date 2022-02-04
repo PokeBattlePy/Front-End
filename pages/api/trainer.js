@@ -11,6 +11,7 @@ export default function handler(req, res) {
         backDefault:
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"
       },
+      art: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
       stats: {
         hp: 50,
         attack: 40,
@@ -50,6 +51,23 @@ export default function handler(req, res) {
         pokemon: [pikachu, pikachu, pikachu]
       },
       pokemon_collection: [
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
+        pikachu,
         pikachu,
         pikachu,
         pikachu,

@@ -1,0 +1,469 @@
+{
+  "id": null,
+  "ghost": "Admin",
+  "user_pokemon": [
+      {
+          "pokemon_int": 23,
+          "name": "ekans",
+          "rarity": "legendary",
+          "types": [
+              "poison"
+          ],
+          "moves": {
+              "base": {
+                  "name": "slam",
+                  "power": 119,
+                  "class": "physical",
+                  "type": "normal"
+              },
+              "special": {
+                  "name": "bind",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png",
+          "stats": {
+              "hp": 49,
+              "attack": 84,
+              "special-attack": 56,
+              "defense": 61.599999999999994,
+              "special-defense": 75.6
+          }
+      },
+      {
+          "pokemon_int": 142,
+          "name": "aerodactyl",
+          "rarity": "rare",
+          "types": [
+              "rock",
+              "flying"
+          ],
+          "moves": {
+              "base": {
+                  "name": "wing-attack",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "flying"
+              },
+              "special": {
+                  "name": "razor-wind",
+                  "power": 119,
+                  "class": "special",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/142.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/142.png",
+          "stats": {
+              "hp": 96,
+              "attack": 126,
+              "special-attack": 72,
+              "defense": 78,
+              "special-defense": 90
+          }
+      },
+      {
+          "pokemon_int": 100,
+          "name": "voltorb",
+          "rarity": "uncommon",
+          "types": [
+              "electric"
+          ],
+          "moves": {
+              "base": {
+                  "name": "tackle",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "normal"
+              },
+              "special": {
+                  "name": "headbutt",
+                  "power": 119,
+                  "class": "physical",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/100.png",
+          "stats": {
+              "hp": 44,
+              "attack": 33,
+              "special-attack": 60.50000000000001,
+              "defense": 55.00000000000001,
+              "special-defense": 60.50000000000001
+          }
+      }
+  ],
+  "comp_pokemon": [
+      {
+          "pokemon_int": 23,
+          "name": "ekans",
+          "rarity": "legendary",
+          "types": [
+              "poison"
+          ],
+          "moves": {
+              "base": {
+                  "name": "slam",
+                  "power": 119,
+                  "class": "physical",
+                  "type": "normal"
+              },
+              "special": {
+                  "name": "bind",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png",
+          "stats": {
+              "hp": 49,
+              "attack": 84,
+              "special-attack": 56,
+              "defense": 61.599999999999994,
+              "special-defense": 75.6
+          }
+      },
+      {
+          "pokemon_int": 142,
+          "name": "aerodactyl",
+          "rarity": "rare",
+          "types": [
+              "rock",
+              "flying"
+          ],
+          "moves": {
+              "base": {
+                  "name": "wing-attack",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "flying"
+              },
+              "special": {
+                  "name": "razor-wind",
+                  "power": 119,
+                  "class": "special",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/142.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/142.png",
+          "stats": {
+              "hp": 96,
+              "attack": 126,
+              "special-attack": 72,
+              "defense": 78,
+              "special-defense": 90
+          }
+      },
+      {
+          "pokemon_int": 100,
+          "name": "voltorb",
+          "rarity": "uncommon",
+          "types": [
+              "electric"
+          ],
+          "moves": {
+              "base": {
+                  "name": "tackle",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "normal"
+              },
+              "special": {
+                  "name": "headbutt",
+                  "power": 119,
+                  "class": "physical",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/100.png",
+          "stats": {
+              "hp": 44,
+              "attack": 33,
+              "special-attack": 60.50000000000001,
+              "defense": 55.00000000000001,
+              "special-defense": 60.50000000000001
+          }
+      }
+  ],
+  "user_poke_status": [
+      {
+          "pokemon_int": 23,
+          "name": "ekans",
+          "rarity": "legendary",
+          "types": [
+              "poison"
+          ],
+          "moves": {
+              "base": {
+                  "name": "slam",
+                  "power": 119,
+                  "class": "physical",
+                  "type": "normal"
+              },
+              "special": {
+                  "name": "bind",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png",
+          "stats": {
+              "hp": 49,
+              "attack": 84,
+              "special-attack": 56,
+              "defense": 61.599999999999994,
+              "special-defense": 75.6
+          }
+      },
+      {
+          "pokemon_int": 142,
+          "name": "aerodactyl",
+          "rarity": "rare",
+          "types": [
+              "rock",
+              "flying"
+          ],
+          "moves": {
+              "base": {
+                  "name": "wing-attack",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "flying"
+              },
+              "special": {
+                  "name": "razor-wind",
+                  "power": 119,
+                  "class": "special",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/142.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/142.png",
+          "stats": {
+              "hp": 96,
+              "attack": 126,
+              "special-attack": 72,
+              "defense": 78,
+              "special-defense": 90
+          }
+      },
+      {
+          "pokemon_int": 100,
+          "name": "voltorb",
+          "rarity": "uncommon",
+          "types": [
+              "electric"
+          ],
+          "moves": {
+              "base": {
+                  "name": "tackle",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "normal"
+              },
+              "special": {
+                  "name": "headbutt",
+                  "power": 119,
+                  "class": "physical",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/100.png",
+          "stats": {
+              "hp": 44,
+              "attack": 33,
+              "special-attack": 60.50000000000001,
+              "defense": 55.00000000000001,
+              "special-defense": 60.50000000000001
+          }
+      }
+  ],
+  "comp_poke_status": [
+      {
+          "pokemon_int": 23,
+          "name": "ekans",
+          "rarity": "legendary",
+          "types": [
+              "poison"
+          ],
+          "moves": {
+              "base": {
+                  "name": "slam",
+                  "power": 119,
+                  "class": "physical",
+                  "type": "normal"
+              },
+              "special": {
+                  "name": "bind",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png",
+          "stats": {
+              "hp": 49,
+              "attack": 84,
+              "special-attack": 56,
+              "defense": 61.599999999999994,
+              "special-defense": 75.6
+          }
+      },
+      {
+          "pokemon_int": 142,
+          "name": "aerodactyl",
+          "rarity": "rare",
+          "types": [
+              "rock",
+              "flying"
+          ],
+          "moves": {
+              "base": {
+                  "name": "wing-attack",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "flying"
+              },
+              "special": {
+                  "name": "razor-wind",
+                  "power": 119,
+                  "class": "special",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/142.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/142.png",
+          "stats": {
+              "hp": 96,
+              "attack": 126,
+              "special-attack": 72,
+              "defense": 78,
+              "special-defense": 90
+          }
+      },
+      {
+          "pokemon_int": 100,
+          "name": "voltorb",
+          "rarity": "uncommon",
+          "types": [
+              "electric"
+          ],
+          "moves": {
+              "base": {
+                  "name": "tackle",
+                  "power": 63,
+                  "class": "physical",
+                  "type": "normal"
+              },
+              "special": {
+                  "name": "headbutt",
+                  "power": 119,
+                  "class": "physical",
+                  "type": "normal"
+              }
+          },
+          "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+          "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png",
+          "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/100.png",
+          "stats": {
+              "hp": 44,
+              "attack": 33,
+              "special-attack": 60.50000000000001,
+              "defense": 55.00000000000001,
+              "special-defense": 60.50000000000001
+          }
+      }
+  ],
+  "active_user_pokemon": {
+      "pokemon_int": 23,
+      "name": "ekans",
+      "rarity": "legendary",
+      "types": [
+          "poison"
+      ],
+      "moves": {
+          "base": {
+              "name": "slam",
+              "power": 119,
+              "class": "physical",
+              "type": "normal"
+          },
+          "special": {
+              "name": "bind",
+              "power": 63,
+              "class": "physical",
+              "type": "normal"
+          }
+      },
+      "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png",
+      "stats": {
+          "hp": 49,
+          "attack": 84,
+          "special-attack": 56,
+          "defense": 61.599999999999994,
+          "special-defense": 75.6
+      }
+  },
+  "active_comp_pokemon": {
+      "pokemon_int": 23,
+      "name": "ekans",
+      "rarity": "legendary",
+      "types": [
+          "poison"
+      ],
+      "moves": {
+          "base": {
+              "name": "slam",
+              "power": 119,
+              "class": "physical",
+              "type": "normal"
+          },
+          "special": {
+              "name": "bind",
+              "power": 63,
+              "class": "physical",
+              "type": "normal"
+          }
+      },
+      "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png",
+      "stats": {
+          "hp": 49,
+          "attack": 84,
+          "special-attack": 56,
+          "defense": 61.599999999999994,
+          "special-defense": 75.6
+      }
+  },
+  "last_move": "smack",
+  "hp": {
+      "player_max": 49,
+      "op_max": 49
+  }
+}

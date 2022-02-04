@@ -1,3 +1,100 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Fonts */
+
+@font-face {
+  font-family: "gb";
+  src: url("../public/fonts/Pokemon\ GB.ttf");
+}
+.gb-text {
+  font-family: "gb";
+}
+
+@font-face {
+  font-family: "poke";
+  src: url("../public/fonts/Pocket\ Monk.otf");
+}
+.poke-text {
+  font-family: "poke";
+}
+
+.text-2xs{
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+}
+
+/* Animations */
+
+@keyframes shake {
+  0% { left: 0px}
+  20% {left: 50px}
+  80% { left: -50px}
+  100% { left: 0px}
+}
+
+.shake{
+  animation-name: shake;
+  animation-duration: 0.75s;
+  animation-iteration-count: 2;
+}
+
+/* Sprites */
+
+/* Type color classes for cards */
+
+.normal{
+  @apply bg-gradient-to-b from-normal to-white
+}
+.fire{
+  @apply bg-gradient-to-b from-fire to-white
+}
+.water{
+  @apply bg-gradient-to-b from-water to-white
+}
+.electric{
+  @apply bg-gradient-to-b from-electric to-white
+}
+.grass{
+  @apply bg-gradient-to-b from-grass to-white
+}
+.ice{
+  @apply bg-gradient-to-b from-ice to-white
+}
+.fighting{
+  @apply bg-gradient-to-b from-fighting to-white
+}
+.poison{
+  @apply bg-gradient-to-b from-poison to-white
+}
+.ground{
+  @apply bg-gradient-to-b from-ground to-white
+}
+.flying{
+  @apply bg-gradient-to-b from-flying to-white
+}
+.psychic{
+  @apply bg-gradient-to-b from-psychic to-white
+}
+.bug{
+  @apply bg-gradient-to-b from-bug to-white
+}
+.rock{
+  @apply bg-gradient-to-b from-rock to-white
+}
+.ghost{
+  @apply bg-gradient-to-b from-ghost to-white
+}
+.dragon{
+  @apply bg-gradient-to-b from-dragon to-white
+}
+.dark{
+  @apply bg-gradient-to-b from-dark to-white
+}
+.steel{
+  @apply bg-gradient-to-b from-steel to-white
+}
+.fairy{
+  @apply bg-gradient-to-b from-fairy to-white
+}
