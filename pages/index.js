@@ -49,7 +49,7 @@ export function NoUserHome() {
       "rarity": "common",
       "types": ["normal", "flying"],
       "moves": {
-        "base": { "name": "whirlwind", "power": null, "class": "status", "type": "normal" },
+        "base": { "name": "whirlwind", "power": 50, "class": "status", "type": "normal" },
         "special": { "name": "razor-wind", "power": 80, "class": "special", "type": "normal" }
       },
       "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",

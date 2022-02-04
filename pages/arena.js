@@ -40,13 +40,14 @@ export default function Arena() {
         'Authorization': 'Bearer ' + tokens.access
       },
       body: {
-        "deck": trainer.decks
+        "deck": trainer.decks,
+        "game": game
       }
     }
 
-    let game = await axios.post("https://poke-battle-py.herokuapp.com/game/", config)
-    console.log(game.data)
-    setGame(game.data)
+    let new_game = await axios.post("https://poke-battle-py.herokuapp.com/game/", config)
+    console.log(new_game.data)
+    setGame(new_game.data)
   }
 
   // function getActivePokemon(game){
@@ -58,7 +59,7 @@ export default function Arena() {
   return (
     <main className="gb-text">
       <Header />
-      {/* {game ?  */}
+      {game ? 
       <div className=' my-10 relative gb-text font-bold justify-center'>
         {/* battle area container */}
         <div className="grid grid-cols-3 gap-2 w-[1200px] m-auto border-4 border-gray-800">
@@ -141,8 +142,8 @@ export default function Arena() {
 
         </div>
       </div>
-      <div className="flex justify-center m-auto"><button className="p-2 bg-gray-400 border-4 rounded-lg my-5 hover:bg-gray-200" onClick={() => handleStart()}>Start Game</button></div>
-      {/* } */}
+      : <div className="flex justify-center m-auto"><button className="p-2 bg-gray-400 border-4 rounded-lg my-5 hover:bg-gray-200" onClick={() => handleStart()}>Start Game</button></div>
+      }
     </main>
 
   )
@@ -153,7 +154,7 @@ function Controls(props) {
 
   async function handleChoice(selection) {
     const info = {
-      "game": props.game.id,
+      "game": props.game,
       "selection": selection
     }
     let config = {
@@ -163,8 +164,9 @@ function Controls(props) {
       body: info
     }
 
-    let game = await axios.post("https://poke-battle-py.herokuapp.com/game/battle/", config)
-    props.setGame(game.data)
+    let updated_game = await axios.put("https://poke-battle-py.herokuapp.com/game/battle/", config)
+    console.log(updated_game.data)
+    props.setGame(updated_game.data)
   }
 
   return (

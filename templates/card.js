@@ -1,20 +1,25 @@
+import { useState } from 'react';
+import ReactCardFlip from 'react-card-flip';
+
 export default function Card({ pokemon, size }) {
+
+  const [isFlipped, changeFlip] = useState(false);
 
   let background = pokemon.types[0]
 
   let card_size = {
-    "norm":"h-120 w-60",
-    "sm":"h-60 w-40"
+    "norm": "h-120 w-60",
+    "sm": "h-60 w-40"
   }
 
   let text_size = {
-    "norm":"text-sm",
-    "sm":"text-xs"
+    "norm": "text-sm",
+    "sm": "text-xs"
   }
 
   let title_size = {
-    "norm":"",
-    "sm":"text-sm"
+    "norm": "",
+    "sm": "text-sm"
   }
 
   let borders = {
@@ -29,8 +34,11 @@ export default function Card({ pokemon, size }) {
 
   return (
     // outter border of card
-    // card container
-    <div className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-4 ${borders[pokemon.rarity]} font-bold ${background}`}>
+      // card 
+    <ReactCardFlip isFlipped={isFlipped} flipSpeedBackToFront={1} flipSpeedFrontToBack={1}>
+
+      {/* Card Front */}
+      <div onMouseEnter={() => changeFlip(true)} key="front" className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-4 ${borders[pokemon.rarity]} font-bold ${background}`}>
 
 
         <div className={`flex items-center rounded-md p-1 justify-center ${title_size[size]} bg-slate-500/50`}>
@@ -43,17 +51,48 @@ export default function Card({ pokemon, size }) {
           width="90%"
           height="auto"
           position="justify:center"
-          />
+        />
         <p className="flex items-center justify-center capitalize">{pokemon.types[0]}</p>
         <div className={`flex justify-around ${text_size[size]}`}>
-          <p>{Math.floor(pokemon.stats.hp)}<br/> HP</p>
-          <p>{Math.floor(pokemon.stats.attack)}<br/> ATK</p>
-          <p>{Math.floor(pokemon.stats.defense)}<br/> DEF</p>
+          <p>{Math.floor(pokemon.stats.hp)}<br /> HP</p>
+          <p>{Math.floor(pokemon.stats.attack)}<br /> ATK</p>
+          <p>{Math.floor(pokemon.stats.defense)}<br /> DEF</p>
         </div>
         <p className="rarity mx-1 capitalize">{pokemon.rarity}</p>
         {/* <div className="attack stat">30 attack</div> */}
         {/* <div className="abilities">Shock, Flop, Dash, Burrow</div> */}
+      </div >
 
-    </div>
+      {/* Card Back */}
+      <div onMouseLeave={() => changeFlip(false)} key="back" className={`relative ${card_size[size]} ${text_size[size]} text-center p-1 rounded-md border-4 ${borders[pokemon.rarity]} font-bold ${background}`}>
+
+
+        <div className={`flex items-center rounded-md p-1 justify-center ${title_size[size]} bg-slate-500/50`}>
+          <p className="capitalize mx-1">{pokemon.name}</p>
+        </div>
+
+        <div className='my-5'>
+          <p className='font-bold'>Base Attack</p>
+          <p className='capitalize'>{pokemon.moves.base.name}</p>
+          <p>Power: {pokemon.moves.base.power}</p>
+        </div>
+        <div className='my-5'>
+          <p className='font-bold'>Special Attack</p>
+          <p className='capitalize'>{pokemon.moves.special.name}</p>
+          <p>Power: {pokemon.moves.special.power}</p>
+        </div>
+
+        <p className="flex items-center justify-center capitalize">{pokemon.types[0]}</p>
+        <div className={`flex justify-around ${text_size[size]}`}>
+          <p>{Math.floor(pokemon.stats.hp)}<br /> HP</p>
+          <p>{Math.floor(pokemon.stats.attack)}<br /> ATK</p>
+          <p>{Math.floor(pokemon.stats.defense)}<br /> DEF</p>
+        </div>
+        <p className="rarity mx-1 capitalize">{pokemon.rarity}</p>
+        {/* <div className="attack stat">30 attack</div> */}
+        {/* <div className="abilities">Shock, Flop, Dash, Burrow</div> */}
+      </div >
+    </ReactCardFlip>
+
   );
 }

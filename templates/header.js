@@ -33,7 +33,7 @@ export function NotLoggedIn({ login }) {
       </Link>
       <form onSubmit={handleLogin}>
         <label className="px-1">Username</label>
-        <input className="px-1 bg-gray-200 w-36" name="username" type="text" />
+        <input className="px-1 bg-gray-200 w-36" autoComplete="off" name="username" type="text" />
         <label className="px-1 ml-2">Password</label>
         <input className="px-1 bg-gray-200 w-36" name="password" type="password" />
         <button type="submit" className="px-4 py-1 border-2 border-black ml-3">Login</button>
